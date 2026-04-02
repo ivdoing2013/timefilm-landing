@@ -3,68 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>时光影记 - AI人生回忆录 | 把家人的故事拍成电影</title>
-    <meta name="description" content="用AI技术为父母、家人制作人生回忆录视频。轻量AI+半人工定制，3分钟到15分钟，99元起。情感真实，价格亲民，纪念永恒。">
+    <title>如邻 - AI人生回忆录 | 让父母永远陪在身边</title>
+    <meta name="description" content="如邻，取自《周易》如临父母。用AI技术为父母、家人制作人生回忆录视频，让回忆如父母还在身边一样温暖。轻量AI+半人工定制，99元起。">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;600;700&display=swap');
         
         * { font-family: 'Noto Sans SC', sans-serif; }
+        .serif { font-family: 'Noto Serif SC', serif; }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        /* Hero Background with Family Images */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 50%, rgba(240, 147, 251, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .warm-gradient {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
         
         .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .text-gradient {
-            background: linear-gradient(90deg, #f093fb 0%, #f5576c 50%, #ffd700 100%);
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
         .floating {
-            animation: floating 3s ease-in-out infinite;
+            animation: floating 4s ease-in-out infinite;
         }
         
         @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
         }
         
         .pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite;
+            animation: pulse-glow 2.5s ease-in-out infinite;
         }
         
         @keyframes pulse-glow {
             0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
-            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8), 0 0 60px rgba(240, 147, 251, 0.4); }
         }
         
         .gradient-border {
             background: linear-gradient(135deg, #667eea, #f093fb, #f5576c);
-            padding: 2px;
-            border-radius: 1rem;
+            padding: 3px;
+            border-radius: 1.25rem;
         }
         
         .gradient-border-inner {
             background: white;
-            border-radius: calc(1rem - 2px);
+            border-radius: calc(1.25rem - 3px);
         }
         
         .scroll-indicator {
@@ -87,32 +97,99 @@
             color: white;
         }
         
-        .process-line {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        /* Family-themed section backgrounds */
+        .family-section {
+            background: linear-gradient(135deg, rgba(255, 236, 210, 0.9) 0%, rgba(252, 182, 159, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1542037104857-4bb4b9fe2433?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .elderly-section {
+            background: linear-gradient(135deg, rgba(254, 249, 231, 0.95) 0%, rgba(252, 243, 207, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
         }
         
         .testimonial-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            background: linear-gradient(145deg, #ffffff 0%, #fff8f0 100%);
+            border: 1px solid rgba(252, 182, 159, 0.3);
+        }
+        
+        .name-meaning {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(254, 249, 231, 0.95) 100%);
+            border-left: 4px solid #f093fb;
+        }
+        
+        /* Warm button styles */
+        .btn-warm {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #764ba2;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-warm:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 154, 158, 0.4);
+        }
+        
+        .btn-primary-warm {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-warm:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Decorative elements */
+        .heart-float {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.3;
+            animation: float-heart 6s ease-in-out infinite;
+        }
+        
+        @keyframes float-heart {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(10deg); opacity: 0.6; }
+        }
+        
+        /* Quote styling */
+        .quote-mark {
+            font-size: 80px;
+            line-height: 1;
+            color: rgba(240, 147, 251, 0.3);
+            font-family: Georgia, serif;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-orange-50">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="glass-effect">
+        <div class="glass-effect shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-film text-2xl text-purple-600"></i>
-                        <span class="text-xl font-bold text-gray-800">时光影记</span>
+                <div class="flex justify-between items-center h-18">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-home-heart text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold serif text-gray-800">如邻</span>
+                            <span class="text-xs text-gray-500 ml-2 hidden sm:inline">如临父母，温暖相伴</span>
+                        </div>
                     </div>
                     <div class="hidden md:flex space-x-8">
-                        <a href="#services" class="text-gray-700 hover:text-purple-600 transition">服务</a>
-                        <a href="#process" class="text-gray-700 hover:text-purple-600 transition">流程</a>
-                        <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition">定价</a>
-                        <a href="#faq" class="text-gray-700 hover:text-purple-600 transition">FAQ</a>
+                        <a href="#story" class="text-gray-700 hover:text-purple-600 transition font-medium">品牌故事</a>
+                        <a href="#services" class="text-gray-700 hover:text-purple-600 transition font-medium">服务</a>
+                        <a href="#process" class="text-gray-700 hover:text-purple-600 transition font-medium">流程</a>
+                        <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition font-medium">定价</a>
+                        <a href="#faq" class="text-gray-700 hover:text-purple-600 transition font-medium">FAQ</a>
                     </div>
-                    <a href="#contact" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition pulse-glow">
+                    <a href="#contact" class="btn-primary-warm px-6 py-2.5 rounded-full font-bold shadow-lg">
                         免费咨询
                     </a>
                 </div>
@@ -120,265 +197,205 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
-        <!-- Decorative Elements -->
-        <div class="absolute top-20 left-10 w-72 h-72 bg-white opacity-10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-400 opacity-20 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/4 w-48 h-48 bg-yellow-300 opacity-10 rounded-full blur-2xl"></div>
+    <!-- Hero Section with Family Background -->
+    <section class="min-h-screen hero-bg flex items-center justify-center relative overflow-hidden">
+        <!-- Decorative Hearts -->
+        <div class="heart-float" style="top: 15%; left: 10%;">💕</div>
+        <div class="heart-float" style="top: 25%; right: 15%; animation-delay: 1s;">🏠</div>
+        <div class="heart-float" style="bottom: 30%; left: 20%; animation-delay: 2s;">👨‍👩‍👧‍👦</div>
+        <div class="heart-float" style="bottom: 20%; right: 10%; animation-delay: 3s;">❤️</div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="floating mb-8">
-                <i class="fas fa-heart text-6xl text-white opacity-80"></i>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Brand Name with Meaning -->
+            <div class="mb-8">
+                <div class="inline-block name-meaning px-8 py-4 rounded-2xl mb-6">
+                    <div class="flex items-center justify-center space-x-3 mb-2">
+                        <span class="text-6xl md:text-8xl font-bold serif text-gradient">如邻</span>
+                    </div>
+                    <div class="text-gray-600 italic text-sm md:text-base">
+                        <i class="fas fa-book-open mr-2 text-purple-500"></i>
+                        取自《周易》"如临父母"——回忆如父母还在身边
+                    </div>
+                </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight drop-shadow-2xl">
                 把家人的故事<br>
-                <span class="text-yellow-300">拍成电影</span>
+                <span class="text-yellow-300">永远留在身边</span>
             </h1>
-            <p class="text-xl md:text-2xl text-white opacity-90 mb-4 max-w-3xl mx-auto">
-                AI 人生回忆录 · 为父母、长辈定制专属纪录片
+            <p class="text-xl md:text-2xl text-white opacity-95 mb-4 max-w-3xl mx-auto drop-shadow-lg">
+                AI 人生回忆录 · 让父母的爱跨越时空
             </p>
-            <p class="text-lg text-white opacity-70 mb-10 max-w-2xl mx-auto">
-                轻量AI + 半人工精修，情感真实，价格亲民，纪念永恒
+            <p class="text-lg text-white opacity-80 mb-10 max-w-2xl mx-auto">
+                就像父母还在身边一样温暖，每一帧都是珍贵的陪伴
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                <a href="#pricing" class="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition transform hover:scale-105">
+                <a href="#pricing" class="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition transform hover:scale-105 shadow-xl">
                     <i class="fas fa-play-circle mr-2"></i>查看样片与价格
                 </a>
-                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-purple-600 transition">
-                    <i class="fas fa-phone mr-2"></i>免费咨询 30 分钟
+                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-purple-600 transition backdrop-blur-sm">
+                    <i class="fas fa-heart mr-2"></i>预约免费咨询
                 </a>
             </div>
             
             <!-- Trust Badges -->
-            <div class="flex flex-wrap justify-center gap-8 text-white opacity-80">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
+            <div class="flex flex-wrap justify-center gap-6 text-white">
+                <div class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
+                    <i class="fas fa-check-circle text-green-300"></i>
                     <span>99元起</span>
                 </div>
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
+                <div class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
+                    <i class="fas fa-check-circle text-green-300"></i>
                     <span>24小时交付</span>
                 </div>
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
+                <div class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
+                    <i class="fas fa-check-circle text-green-300"></i>
                     <span>不满意退款</span>
                 </div>
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-check-circle text-green-400"></i>
-                    <span>隐私安全</span>
+                <div class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
+                    <i class="fas fa-check-circle text-green-300"></i>
+                    <span>隐私严格保护</span>
                 </div>
             </div>
         </div>
         
         <!-- Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
-            <i class="fas fa-chevron-down text-white text-2xl opacity-60"></i>
+            <i class="fas fa-chevron-down text-white text-2xl opacity-70"></i>
         </div>
     </section>
 
-    <!-- Product Highlights - 小云雀式功能展示 -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block">
-                    <i class="fas fa-magic mr-2"></i>AI 短剧式创作体验
-                </span>
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">像拍短剧一样，做一部家庭纪录片</h2>
-                <p class="text-xl text-gray-600">可视化编辑器 + AI 一键生成，零门槛上手</p>
+    <!-- Brand Story Section -->
+    <section id="story" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-12">
+                <span class="text-purple-600 font-medium text-sm tracking-wider uppercase">Brand Story</span>
+                <h2 class="text-4xl md:text-5xl font-bold serif text-gray-800 mt-4 mb-6">
+                    为什么叫<span class="text-gradient">"如邻"</span>？
+                </h2>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Feature 1: Story Editor -->
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl card-hover">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-clapperboard text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">可视化故事板</h3>
-                    <p class="text-gray-600 text-sm">拖拽式编排人生片段，像导演一样设计每个镜头</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-white px-2 py-1 rounded text-xs text-purple-600">分镜管理</span>
-                        <span class="bg-white px-2 py-1 rounded text-xs text-purple-600">转场特效</span>
-                    </div>
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 md:p-12 shadow-xl">
+                <div class="quote-mark mb-4">"</div>
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 serif">
+                    《周易》有言：<span class="text-purple-600 font-bold">"如临父母"</span>——<br>
+                    当回忆涌上心头，仿佛父母还在身边，<br>
+                    那些温暖的叮咛、慈爱的笑容，从未远去。
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    我们取名<span class="font-bold text-purple-600">"如邻"</span>，正是希望用AI技术，<br>
+                    把父母的人生故事制作成珍贵的影像，<br>
+                    让这份陪伴，永远温暖如邻。
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
                 </div>
-                
-                <!-- Feature 2: Character Library -->
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-2xl card-hover">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-user-astronaut text-2xl text-white"></i>
+            </div>
+            
+            <!-- Values -->
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                        <i class="fas fa-heart text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">数字人形象</h3>
-                    <p class="text-gray-600 text-sm">上传照片生成专属数字人，让家人"亲口"讲述故事</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-white px-2 py-1 rounded text-xs text-blue-600">AI克隆音色</span>
-                        <span class="bg-white px-2 py-1 rounded text-xs text-blue-600">口型同步</span>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">情感真挚</h3>
+                    <p class="text-gray-600">每一帧都承载着对家人的爱</p>
                 </div>
-                
-                <!-- Feature 3: Scene Templates -->
-                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-2xl card-hover">
-                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-film text-2xl text-white"></i>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                        <i class="fas fa-infinity text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">经典场景模板</h3>
-                    <p class="text-gray-600 text-sm">100+人生场景模板：童年、求学、创业、金婚...</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-white px-2 py-1 rounded text-xs text-orange-600">一键套用</span>
-                        <span class="bg-white px-2 py-1 rounded text-xs text-orange-600">智能适配</span>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">跨越时空</h3>
+                    <p class="text-gray-600">让回忆永远鲜活，代代相传</p>
                 </div>
-                
-                <!-- Feature 4: AI Production -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl card-hover">
-                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-wand-magic-sparkles text-2xl text-white"></i>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                        <i class="fas fa-home text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">AI一键成片</h3>
-                    <p class="text-gray-600 text-sm">智能剪辑、自动配乐、字幕生成，10分钟出片</p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-white px-2 py-1 rounded text-xs text-green-600">智能剪辑</span>
-                        <span class="bg-white px-2 py-1 rounded text-xs text-green-600">情感配乐</span>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">温暖如邻</h3>
+                    <p class="text-gray-600">如父母还在身边般的陪伴</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pain Points Section -->
-    <section class="py-20 bg-gray-50">
+    <!-- Pain Points Section with Elderly Background -->
+    <section class="py-24 elderly-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">这些遗憾，本可以避免</h2>
-                <p class="text-xl text-gray-600">不要等到失去，才想起记录</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">别让遗憾，成为永远的痛</h2>
+                <p class="text-xl text-gray-600">有些话，等到想说时，可能已经来不及</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 bg-red-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-hourglass-end text-2xl text-red-500"></i>
+                <div class="bg-white rounded-2xl p-8 shadow-xl card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hourglass-end text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">时光飞逝</h3>
-                    <p class="text-gray-600">父母渐老，那些峥嵘岁月、创业故事、人生智慧，如果没人记录，就永远消失了</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">时光飞逝</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        父母的白发越来越多，那些峥嵘岁月、创业艰辛、人生智慧，如果没人记录，就永远消失了。子欲养而亲不待，是最大的遗憾。
+                    </p>
                 </div>
                 
-                <div class="text-center p-8 bg-orange-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-video-slash text-2xl text-orange-500"></i>
+                <div class="bg-white rounded-2xl p-8 shadow-xl card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-camera-retro text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">专业团队太贵</h3>
-                    <p class="text-gray-600">传统纪录片团队报价 3-10万，拍摄周期长，普通家庭难以承受</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">回忆在消逝</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        手机里的几千张照片，零散地躺在相册里吃灰。没有故事、没有情感、没有传承。这些珍贵的记忆，正在被时间冲淡。
+                    </p>
                 </div>
                 
-                <div class="text-center p-8 bg-blue-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-mobile-alt text-2xl text-blue-500"></i>
+                <div class="bg-white rounded-2xl p-8 shadow-xl card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-video-slash text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">零散的照片</h3>
-                    <p class="text-gray-600">手机里的几千张照片，躺在相册里吃灰，没有故事、没有情感、没有传承</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Short Drama Platform Features -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 rounded-3xl p-8 md:p-12">
-                <div class="text-center mb-12">
-                    <span class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block">
-                        <i class="fas fa-star mr-2"></i>小云雀式创作体验
-                    </span>
-                    <h3 class="text-3xl font-bold text-gray-800 mb-4">
-                        借鉴短剧制作平台的专业能力
-                    </h3>
-                    <p class="text-xl text-gray-600">可视化编辑器 + AI 一键生成，让每个家庭都能拍出电影感</p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
-                            <i class="fas fa-scroll text-2xl text-white"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2">智能剧本生成</h4>
-                        <p class="text-gray-600 text-sm">输入关键词，AI自动生成完整剧本。支持"创业故事"、"金婚纪念"、"童年回忆"等主题</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
-                            <i class="fas fa-images text-2xl text-white"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2">百万素材库</h4>
-                        <p class="text-gray-600 text-sm">年代背景、怀旧场景、经典音乐等正版素材，一键匹配故事时代感</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4">
-                            <i class="fas fa-users text-2xl text-white"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2">全家协作审片</h4>
-                        <p class="text-gray-600 text-sm">邀请家人一起在线审片，留言批注，共同完善家庭记忆</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center mb-4">
-                            <i class="fas fa-closed-captioning text-2xl text-white"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2">AI智能字幕</h4>
-                        <p class="text-gray-600 text-sm">自动识别语音生成字幕，支持方言识别、多语言翻译</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
-                            <i class="fas fa-music text-2xl text-white"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2">情感配乐引擎</h4>
-                        <p class="text-gray-600 text-sm">AI分析故事情感曲线，自动匹配背景音乐，高潮迭起、催人泪下</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
-                            <i class="fas fa-share-nodes text-2xl text-white"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-800 mb-2">一键多平台分发</h4>
-                        <p class="text-gray-600 text-sm">自动生成横版、竖版、方形等多种格式，适配抖音、视频号、朋友圈</p>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">专业太贵</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        传统纪录片团队报价3-10万，拍摄周期长，流程复杂。普通家庭想做却做不起，让珍贵的记忆只能停留在脑海中。
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Solution Section -->
-    <section class="py-20 bg-gray-50" id="services">
+    <section id="services" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">时光影记 · 三种选择</h2>
-                <p class="text-xl text-gray-600">从入门到高端，总有一款适合你</p>
+                <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block">
+                    <i class="fas fa-magic mr-2"></i>三种方式，留住回忆
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">如邻 · 让温暖触手可及</h2>
+                <p class="text-xl text-gray-600">从入门到高端，总有一种方式适合您</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Light AI -->
                 <div class="gradient-border card-hover">
-                    <div class="gradient-border-inner p-8 h-full">
+                    <div class="gradient-border-inner p-8 h-full flex flex-col">
                         <div class="flex items-center justify-between mb-6">
                             <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">入门体验</span>
-                            <i class="fas fa-bolt text-2xl text-yellow-500"></i>
+                            <i class="fas fa-seedling text-2xl text-green-500"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">轻量AI模板</h3>
-                        <p class="text-gray-500 mb-6">10分钟快速出片</p>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">轻量回忆</h3>
+                        <p class="text-gray-500 mb-6">快速留存，温暖起步</p>
                         
                         <div class="text-4xl font-bold text-purple-600 mb-6">
                             ¥99<span class="text-lg text-gray-400 font-normal">起</span>
                         </div>
                         
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3 mb-8 flex-1">
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
-                                AI自动生成脚本
+                                AI智能生成脚本
                             </li>
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
-                                智能配音配乐
+                                温馨配音配乐
                             </li>
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
@@ -386,7 +403,7 @@
                             </li>
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
-                                多模板可选
+                                多场景模板可选
                             </li>
                         </ul>
                         
@@ -399,24 +416,24 @@
                 <!-- Semi-Custom -->
                 <div class="relative card-hover">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold z-10">
-                        <i class="fas fa-crown mr-1"></i>最受欢迎
+                        <i class="fas fa-heart mr-1"></i>最受欢迎
                     </div>
-                    <div class="pricing-card-popular rounded-2xl p-8 h-full">
+                    <div class="pricing-card-popular rounded-2xl p-8 h-full flex flex-col">
                         <div class="flex items-center justify-between mb-6">
-                            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">核心推荐</span>
+                            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">用心推荐</span>
                             <i class="fas fa-gem text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2">半人工定制</h3>
+                        <h3 class="text-2xl font-bold mb-2">温情定制</h3>
                         <p class="text-white opacity-80 mb-6">AI+人工精修，情感满分</p>
                         
                         <div class="text-4xl font-bold mb-6">
                             ¥599<span class="text-lg opacity-70 font-normal">起</span>
                         </div>
                         
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3 mb-8 flex-1">
                             <li class="flex items-center">
                                 <i class="fas fa-check mr-3"></i>
-                                专属脚本定制
+                                专属故事脚本定制
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check mr-3"></i>
@@ -432,7 +449,7 @@
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check mr-3"></i>
-                                高清成片+竖版
+                                横版+竖版双格式
                             </li>
                         </ul>
                         
@@ -444,26 +461,26 @@
                 
                 <!-- Premium -->
                 <div class="gradient-border card-hover">
-                    <div class="gradient-border-inner p-8 h-full">
+                    <div class="gradient-border-inner p-8 h-full flex flex-col">
                         <div class="flex items-center justify-between mb-6">
-                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">高端定制</span>
-                            <i class="fas fa-star text-2xl text-purple-500"></i>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">珍藏版</span>
+                            <i class="fas fa-crown text-2xl text-purple-500"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">高端全案</h3>
-                        <p class="text-gray-500 mb-6">电影级制作水准</p>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">永恒典藏</h3>
+                        <p class="text-gray-500 mb-6">电影级制作，世代传承</p>
                         
                         <div class="text-4xl font-bold text-purple-600 mb-6">
                             ¥3000<span class="text-lg text-gray-400 font-normal">起</span>
                         </div>
                         
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3 mb-8 flex-1">
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
                                 上门访谈拍摄
                             </li>
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
-                                专业导演+剪辑
+                                专业导演+剪辑团队
                             </li>
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
@@ -475,7 +492,7 @@
                             </li>
                             <li class="flex items-center text-gray-600">
                                 <i class="fas fa-check text-green-500 mr-3"></i>
-                                实体U盘+相册
+                                精装实体相册+U盘
                             </li>
                         </ul>
                         
@@ -488,184 +505,91 @@
         </div>
     </section>
 
-    <!-- Process Section - Short Drama Style -->
-    <section class="py-20 bg-white" id="process">
+    <!-- Process Section -->
+    <section id="process" class="py-24 family-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block">
-                    <i class="fas fa-clapperboard mr-2"></i>短剧式制作流程
-                </span>
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">可视化创作，像导演一样拍大片</h2>
-                <p class="text-xl text-gray-600">拖拽式故事板 + AI智能辅助，零门槛上手</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">四步，留住一生的温暖</h2>
+                <p class="text-xl text-gray-600">简单便捷，全程线上完成</p>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left: Visual Storyboard Demo -->
-                <div class="bg-gray-900 rounded-2xl p-6 shadow-2xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-film text-purple-400"></i>
-                            <span class="text-white font-bold">故事板编辑器</span>
-                        </div>
-                        <div class="flex space-x-2">
-                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
-                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-xl text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-images text-3xl text-white"></i>
                     </div>
-                    
-                    <!-- Storyboard Timeline -->
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4 bg-gray-800 rounded-lg p-4">
-                            <div class="w-20 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded flex items-center justify-center">
-                                <i class="fas fa-image text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-white text-sm font-medium">开场：童年照片</div>
-                                <div class="text-gray-400 text-xs">时长: 0:00-0:15 | 配乐: 温馨</div>
-                            </div>
-                            <i class="fas fa-grip-lines text-gray-600 cursor-move"></i>
-                        </div>
-                        
-                        <div class="flex items-center space-x-4 bg-gray-800 rounded-lg p-4 border-2 border-purple-500">
-                            <div class="w-20 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded flex items-center justify-center">
-                                <i class="fas fa-microphone text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-white text-sm font-medium">旁白：求学经历</div>
-                                <div class="text-gray-400 text-xs">时长: 0:15-1:30 | AI配音</div>
-                            </div>
-                            <i class="fas fa-grip-lines text-gray-600 cursor-move"></i>
-                        </div>
-                        
-                        <div class="flex items-center space-x-4 bg-gray-800 rounded-lg p-4">
-                            <div class="w-20 h-14 bg-gradient-to-br from-orange-600 to-red-600 rounded flex items-center justify-center">
-                                <i class="fas fa-briefcase text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-white text-sm font-medium">转场：创业历程</div>
-                                <div class="text-gray-400 text-xs">时长: 1:30-3:00 | 特效: 时光倒流</div>
-                            </div>
-                            <i class="fas fa-grip-lines text-gray-600 cursor-move"></i>
-                        </div>
-                        
-                        <div class="flex items-center space-x-4 bg-gray-800 rounded-lg p-4">
-                            <div class="w-20 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded flex items-center justify-center">
-                                <i class="fas fa-heart text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-white text-sm font-medium">高潮：金婚纪念</div>
-                                <div class="text-gray-400 text-xs">时长: 3:00-4:30 | 配乐: 感动</div>
-                            </div>
-                            <i class="fas fa-grip-lines text-gray-600 cursor-move"></i>
-                        </div>
-                    </div>
-                    
-                    <!-- Toolbar -->
-                    <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-700">
-                        <div class="flex space-x-3">
-                            <button class="px-3 py-1.5 bg-purple-600 text-white rounded text-sm">
-                                <i class="fas fa-play mr-1"></i>预览
-                            </button>
-                            <button class="px-3 py-1.5 bg-gray-700 text-white rounded text-sm">
-                                <i class="fas fa-magic mr-1"></i>AI优化
-                            </button>
-                        </div>
-                        <div class="text-gray-400 text-sm">总时长: 4:30</div>
-                    </div>
+                    <div class="text-3xl font-bold text-purple-600 mb-2">01</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">上传素材</h3>
+                    <p class="text-gray-600">老照片、视频片段，或预约语音访谈，告诉我们家人的故事</p>
                 </div>
                 
-                <!-- Right: Process Steps -->
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">1</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">选择模板或自由创作</h3>
-                            <p class="text-gray-600">从100+人生场景模板中选择，或从零开始拖拽创建故事板。支持导入照片、视频、语音。</p>
-                        </div>
+                <div class="bg-white rounded-2xl p-8 shadow-xl text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-magic text-3xl text-white"></i>
                     </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">2</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">AI智能生成初稿</h3>
-                            <p class="text-gray-600">AI根据素材自动生成脚本、配音、配乐、转场。支持数字人出镜"讲述"故事。</p>
-                        </div>
+                    <div class="text-3xl font-bold text-blue-600 mb-2">02</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">AI创作</h3>
+                    <p class="text-gray-600">AI自动生成脚本、配音、配乐，30分钟出初稿</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-xl text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hands-helping text-3xl text-white"></i>
                     </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">3</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">全家协作精修</h3>
-                            <p class="text-gray-600">邀请家人在线审片，留言批注。专业剪辑师根据反馈优化画面、节奏、情感表达。</p>
-                        </div>
+                    <div class="text-3xl font-bold text-orange-600 mb-2">03</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">家人审片</h3>
+                    <p class="text-gray-600">邀请家人一起在线审片，留言批注，共同完善</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-xl text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-gift text-3xl text-white"></i>
                     </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">4</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">一键导出多版本</h3>
-                            <p class="text-gray-600">自动生成横版、竖版、方形等多种格式。一键分享到抖音、视频号、朋友圈。</p>
-                        </div>
-                    </div>
+                    <div class="text-3xl font-bold text-green-600 mb-2">04</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">珍藏回忆</h3>
+                    <p class="text-gray-600">24小时交付成片，分享给家人，永久珍藏</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">他们的故事</h2>
-                <p class="text-xl text-gray-600">听听客户怎么说</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">他们的温暖故事</h2>
+                <p class="text-xl text-gray-600">每一份回忆，都值得被温柔以待</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="testimonial-card p-8 rounded-2xl shadow-lg">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg card-hover">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6">"给爸爸做的退休纪念视频，他看到后红了眼眶。那些我都没听过的创业故事，终于留下了影像。这个钱花的太值了。"</p>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"给爸爸做的退休纪念视频，他看到后红了眼眶。那些我都没听过的创业故事，终于留下了影像。现在每次想爸爸，就打开看看，感觉他还在身边。"</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-purple-600 font-bold">李</span>
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">李</span>
                         </div>
                         <div>
                             <div class="font-bold text-gray-800">李女士</div>
-                            <div class="text-sm text-gray-500">为父亲定制 · 半人工版</div>
+                            <div class="text-sm text-gray-500">为父亲定制 · 温情版</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card p-8 rounded-2xl shadow-lg">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg card-hover">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6">"99元的入门版试水，效果已经超出预期！后来又给父母做了599的完整版，家里亲戚都问在哪做的。"</p>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"99元的入门版试水，效果已经超出预期！后来又给父母做了599的完整版，奶奶看了直抹眼泪，说这是收到的最好的礼物。"</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-pink-600 font-bold">王</span>
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">王</span>
                         </div>
                         <div>
                             <div class="font-bold text-gray-800">王先生</div>
@@ -674,24 +598,20 @@
                     </div>
                 </div>
                 
-                <div class="testimonial-card p-8 rounded-2xl shadow-lg">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg card-hover">
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6">"我们是家族企业，做了家族发展史纪录片，在年会上播放，老一辈都特别感动。这是送给他们最好的礼物。"</p>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"我们是家族企业，做了家族发展史纪录片。在年会上播放时，老一辈都特别感动。这是送给他们最好的礼物，也是留给后代最珍贵的财富。"</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-blue-600 font-bold">陈</span>
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-400 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">陈</span>
                         </div>
                         <div>
                             <div class="font-bold text-gray-800">陈总</div>
-                            <div class="text-sm text-gray-500">家族企业 · 高端全案</div>
+                            <div class="text-sm text-gray-500">家族企业 · 典藏版</div>
                         </div>
                     </div>
                 </div>
@@ -700,120 +620,132 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-white" id="faq">
+    <section id="faq" class="py-24 bg-orange-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">常见问题</h2>
-                <p class="text-xl text-gray-600">还有疑问？欢迎咨询</p>
+                <p class="text-xl text-gray-600">还有疑问？我们随时为您解答</p>
             </div>
             
             <div class="space-y-4">
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
                         <i class="fas fa-question-circle text-purple-600 mr-3"></i>
                         需要准备什么材料？
                     </h3>
-                    <p class="text-gray-600 ml-9">老照片、家庭视频、或者手机里的照片都可以。如果没有太多素材，我们也可以根据您的描述来创作。越详细的故事，视频越生动。</p>
+                    <p class="text-gray-600 ml-9">老照片、家庭视频、或者手机里的照片都可以。如果没有太多素材，我们也可以根据您的描述来创作。您也可以预约语音访谈，让我们记录下父母亲口讲述的故事。</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
                         <i class="fas fa-question-circle text-purple-600 mr-3"></i>
                         多久能拿到成片？
                     </h3>
-                    <p class="text-gray-600 ml-9">轻量AI版30分钟内出片；半人工定制版24小时内交付初稿，修改后48小时内完成；高端全案需预约拍摄时间，通常7-15天交付。</p>
+                    <p class="text-gray-600 ml-9">轻量回忆版30分钟内出片；温情定制版24小时内交付初稿，修改后48小时内完成；永恒典藏版需预约拍摄时间，通常7-15天交付精美成片。</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
                         <i class="fas fa-question-circle text-purple-600 mr-3"></i>
                         不满意可以退款吗？
                     </h3>
-                    <p class="text-gray-600 ml-9">当然可以。轻量版不满意全额退款；定制版初稿不满意退款50%，成片交付后不支持退款但可免费修改2轮。</p>
+                    <p class="text-gray-600 ml-9">当然可以。轻量回忆版不满意全额退款；温情定制版初稿不满意退款50%，成片交付后不支持退款但可免费修改2轮，直到您满意为止。</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
                         <i class="fas fa-question-circle text-purple-600 mr-3"></i>
                         隐私安全有保障吗？
                     </h3>
-                    <p class="text-gray-600 ml-9">绝对安全。所有素材和成片仅用于本次制作，完成后可应要求删除。可签署保密协议，确保您的家庭隐私不被泄露。</p>
+                    <p class="text-gray-600 ml-9">绝对安全。所有素材和成片仅用于本次制作，完成后可应要求删除。我们可签署保密协议，确保您的家庭隐私不被泄露。您的信任是我们最大的责任。</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center">
                         <i class="fas fa-question-circle text-purple-600 mr-3"></i>
-                        视频可以发抖音/朋友圈吗？
+                        视频可以分享给家人吗？
                     </h3>
-                    <p class="text-gray-600 ml-9">完全可以！我们会提供横版和竖版两种格式，适配抖音、视频号、朋友圈、小红书等所有平台。</p>
+                    <p class="text-gray-600 ml-9">完全可以！我们会提供横版和竖版两种格式，适配微信、抖音、视频号、朋友圈等所有平台。让全家人都能分享这份温暖。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="py-20 gradient-bg" id="contact">
+    <section class="py-24 hero-bg" id="contact">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold text-white mb-4">开始记录家人的故事</h2>
-            <p class="text-xl text-white opacity-90 mb-8">免费咨询 30 分钟，了解哪种方案最适合您</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">开始记录家人的故事</h2>
+            <p class="text-xl text-white opacity-90 mb-4">免费咨询 30 分钟，让回忆如邻，温暖永存</p>
+            <div class="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-2 mb-10">
+                <span class="text-white">📍 如邻 · 如临父母，温暖相伴</span>
+            </div>
             
-            <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl p-8 md:p-12">
+            <div class="bg-white bg-opacity-95 backdrop-filter backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-2xl">
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div class="flex items-center space-x-4 text-white">
-                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-phone-alt"></i>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-phone-alt text-white text-xl"></i>
                         </div>
                         <div class="text-left">
-                            <div class="opacity-70">咨询热线</div>
-                            <div class="text-xl font-bold">400-XXX-XXXX</div>
+                            <div class="text-gray-500 text-sm">咨询热线</div>
+                            <div class="text-2xl font-bold text-gray-800">400-XXX-XXXX</div>
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4 text-white">
-                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                            <i class="fab fa-weixin"></i>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                            <i class="fab fa-weixin text-white text-xl"></i>
                         </div>
                         <div class="text-left">
-                            <div class="opacity-70">微信咨询</div>
-                            <div class="text-xl font-bold">扫码添加顾问</div>
+                            <div class="text-gray-500 text-sm">微信咨询</div>
+                            <div class="text-2xl font-bold text-gray-800">扫码添加顾问</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="text-white opacity-70 text-sm">
-                    <p>工作时间：周一至周日 9:00-21:00</p>
-                    <p class="mt-2">首次咨询免费 · 不满意可退款 · 隐私严格保密</p>
+                <div class="border-t border-gray-200 pt-8">
+                    <div class="flex flex-wrap justify-center gap-4 text-gray-500 text-sm">
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>首次咨询免费</span>
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>不满意可退款</span>
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>隐私严格保密</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-4">工作时间：周一至周日 9:00-21:00</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-film text-2xl text-purple-400"></i>
-                        <span class="text-xl font-bold">时光影记</span>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-home-heart text-white"></i>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold serif">如邻</span>
+                            <p class="text-xs text-gray-400">如临父母，温暖相伴</p>
+                        </div>
                     </div>
-                    <p class="text-gray-400">用AI技术记录家人故事，让回忆永恒传承。</p>
+                    <p class="text-gray-400 leading-relaxed">用AI技术记录家人故事，让回忆如父母还在身边一样温暖，代代相传。</p>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold mb-4">服务</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">轻量AI模板</a></li>
-                        <li><a href="#" class="hover:text-white transition">半人工定制</a></li>
-                        <li><a href="#" class="hover:text-white transition">高端全案</a></li>
+                    <h4 class="font-bold mb-4 text-lg">服务</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">轻量回忆</a></li>
+                        <li><a href="#" class="hover:text-white transition">温情定制</a></li>
+                        <li><a href="#" class="hover:text-white transition">永恒典藏</a></li>
                         <li><a href="#" class="hover:text-white transition">企业服务</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold mb-4">关于</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">关于我们</a></li>
+                    <h4 class="font-bold mb-4 text-lg">关于</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">品牌故事</a></li>
                         <li><a href="#" class="hover:text-white transition">样片展示</a></li>
                         <li><a href="#" class="hover:text-white transition">用户故事</a></li>
                         <li><a href="#" class="hover:text-white transition">加入我们</a></li>
@@ -821,9 +753,9 @@
                 </div>
                 
                 <div>
-                    <h4 class="font-bold mb-4">联系</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-envelope mr-2"></i>hello@timefilm.com</li>
+                    <h4 class="font-bold mb-4 text-lg">联系</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>hello@rulin.com</li>
                         <li><i class="fas fa-phone mr-2"></i>400-XXX-XXXX</li>
                         <li><i class="fas fa-map-marker-alt mr-2"></i>北京市朝阳区</li>
                     </ul>
@@ -831,12 +763,12 @@
             </div>
             
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">© 2024 时光影记. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">© 2024 如邻. 让回忆温暖如邻.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
                     <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-weixin text-xl"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-weibo text-xl"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-douyin text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-xiaohongshu text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fas fa-heart text-xl"></i></a>
                 </div>
             </div>
         </div>
