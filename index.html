@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时光影记 - AI人生回忆录 | 把家人的故事拍成电影</title>
+    <meta name="description" content="用AI技术为父母、家人制作人生回忆录视频。轻量AI+半人工定制，3分钟到15分钟，99元起。情感真实，价格亲民，纪念永恒。">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        
+        * { font-family: 'Noto Sans SC', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .gradient-border {
+            background: linear-gradient(135deg, #667eea, #f093fb, #f5576c);
+            padding: 2px;
+            border-radius: 1rem;
+        }
+        
+        .gradient-border-inner {
+            background: white;
+            border-radius: calc(1rem - 2px);
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .pricing-card-popular {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .process-line {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass-effect">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-film text-2xl text-purple-600"></i>
+                        <span class="text-xl font-bold text-gray-800">时光影记</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#services" class="text-gray-700 hover:text-purple-600 transition">服务</a>
+                        <a href="#process" class="text-gray-700 hover:text-purple-600 transition">流程</a>
+                        <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition">定价</a>
+                        <a href="#faq" class="text-gray-700 hover:text-purple-600 transition">FAQ</a>
+                    </div>
+                    <a href="#contact" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition pulse-glow">
+                        免费咨询
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-white opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-400 opacity-20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/4 w-48 h-48 bg-yellow-300 opacity-10 rounded-full blur-2xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="floating mb-8">
+                <i class="fas fa-heart text-6xl text-white opacity-80"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                把家人的故事<br>
+                <span class="text-yellow-300">拍成电影</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white opacity-90 mb-4 max-w-3xl mx-auto">
+                AI 人生回忆录 · 为父母、长辈定制专属纪录片
+            </p>
+            <p class="text-lg text-white opacity-70 mb-10 max-w-2xl mx-auto">
+                轻量AI + 半人工精修，情感真实，价格亲民，纪念永恒
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <a href="#pricing" class="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition transform hover:scale-105">
+                    <i class="fas fa-play-circle mr-2"></i>查看样片与价格
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-purple-600 transition">
+                    <i class="fas fa-phone mr-2"></i>免费咨询 30 分钟
+                </a>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap justify-center gap-8 text-white opacity-80">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-check-circle text-green-400"></i>
+                    <span>99元起</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-check-circle text-green-400"></i>
+                    <span>24小时交付</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-check-circle text-green-400"></i>
+                    <span>不满意退款</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-check-circle text-green-400"></i>
+                    <span>隐私安全</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <i class="fas fa-chevron-down text-white text-2xl opacity-60"></i>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">这些遗憾，本可以避免</h2>
+                <p class="text-xl text-gray-600">不要等到失去，才想起记录</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-red-50 rounded-2xl">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hourglass-end text-2xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">时光飞逝</h3>
+                    <p class="text-gray-600">父母渐老，那些峥嵘岁月、创业故事、人生智慧，如果没人记录，就永远消失了</p>
+                </div>
+                
+                <div class="text-center p-8 bg-orange-50 rounded-2xl">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-video-slash text-2xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">专业团队太贵</h3>
+                    <p class="text-gray-600">传统纪录片团队报价 3-10万，拍摄周期长，普通家庭难以承受</p>
+                </div>
+                
+                <div class="text-center p-8 bg-blue-50 rounded-2xl">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-2xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">零散的照片</h3>
+                    <p class="text-gray-600">手机里的几千张照片，躺在相册里吃灰，没有故事、没有情感、没有传承</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 bg-gray-50" id="services">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">时光影记 · 三种选择</h2>
+                <p class="text-xl text-gray-600">从入门到高端，总有一款适合你</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Light AI -->
+                <div class="gradient-border card-hover">
+                    <div class="gradient-border-inner p-8 h-full">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">入门体验</span>
+                            <i class="fas fa-bolt text-2xl text-yellow-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">轻量AI模板</h3>
+                        <p class="text-gray-500 mb-6">10分钟快速出片</p>
+                        
+                        <div class="text-4xl font-bold text-purple-600 mb-6">
+                            ¥99<span class="text-lg text-gray-400 font-normal">起</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                AI自动生成脚本
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                智能配音配乐
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                3-5分钟短视频
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                多模板可选
+                            </li>
+                        </ul>
+                        
+                        <a href="#contact" class="block w-full text-center border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold hover:bg-purple-600 hover:text-white transition">
+                            了解详情
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Semi-Custom -->
+                <div class="relative card-hover">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold z-10">
+                        <i class="fas fa-crown mr-1"></i>最受欢迎
+                    </div>
+                    <div class="pricing-card-popular rounded-2xl p-8 h-full">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">核心推荐</span>
+                            <i class="fas fa-gem text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">半人工定制</h3>
+                        <p class="text-white opacity-80 mb-6">AI+人工精修，情感满分</p>
+                        
+                        <div class="text-4xl font-bold mb-6">
+                            ¥599<span class="text-lg opacity-70 font-normal">起</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check mr-3"></i>
+                                专属脚本定制
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check mr-3"></i>
+                                人工精修画面+配音
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check mr-3"></i>
+                                5-15分钟完整版
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check mr-3"></i>
+                                1-2轮免费修改
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check mr-3"></i>
+                                高清成片+竖版
+                            </li>
+                        </ul>
+                        
+                        <a href="#contact" class="block w-full text-center bg-white text-purple-600 py-3 rounded-full font-bold hover:shadow-lg transition">
+                            立即预约
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Premium -->
+                <div class="gradient-border card-hover">
+                    <div class="gradient-border-inner p-8 h-full">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">高端定制</span>
+                            <i class="fas fa-star text-2xl text-purple-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">高端全案</h3>
+                        <p class="text-gray-500 mb-6">电影级制作水准</p>
+                        
+                        <div class="text-4xl font-bold text-purple-600 mb-6">
+                            ¥3000<span class="text-lg text-gray-400 font-normal">起</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                上门访谈拍摄
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                专业导演+剪辑
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                15-30分钟纪录片
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                数字人/VR可选
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                实体U盘+相册
+                            </li>
+                        </ul>
+                        
+                        <a href="#contact" class="block w-full text-center border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold hover:bg-purple-600 hover:text-white transition">
+                            预约咨询
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-white" id="process">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">简单四步，完成一部家庭电影</h2>
+                <p class="text-xl text-gray-600">无需出门，全程线上完成</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Process Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 process-line transform -translate-y-1/2 rounded-full"></div>
+                
+                <div class="grid md:grid-cols-4 gap-8 relative z-10">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <span class="text-3xl font-bold text-white">1</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">提交素材</h3>
+                        <p class="text-gray-600">上传照片、视频片段，填写简单的故事大纲，或预约语音访谈</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <span class="text-3xl font-bold text-white">2</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">AI初稿</h3>
+                        <p class="text-gray-600">AI自动生成脚本、配音、配乐、剪辑，初稿30分钟内完成</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <span class="text-3xl font-bold text-white">3</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">人工精修</h3>
+                        <p class="text-gray-600">专业剪辑师润色画面、调整节奏、优化情感表达</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <span class="text-3xl font-bold text-white">4</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">交付成片</h3>
+                        <p class="text-gray-600">24小时内交付高清成片，支持修改，可分享到各大平台</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">他们的故事</h2>
+                <p class="text-xl text-gray-600">听听客户怎么说</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"给爸爸做的退休纪念视频，他看到后红了眼眶。那些我都没听过的创业故事，终于留下了影像。这个钱花的太值了。"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-purple-600 font-bold">李</span>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">李女士</div>
+                            <div class="text-sm text-gray-500">为父亲定制 · 半人工版</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"99元的入门版试水，效果已经超出预期！后来又给父母做了599的完整版，家里亲戚都问在哪做的。"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-pink-600 font-bold">王</span>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">王先生</div>
+                            <div class="text-sm text-gray-500">轻量版转定制版</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"我们是家族企业，做了家族发展史纪录片，在年会上播放，老一辈都特别感动。这是送给他们最好的礼物。"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-blue-600 font-bold">陈</span>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">陈总</div>
+                            <div class="text-sm text-gray-500">家族企业 · 高端全案</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white" id="faq">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">常见问题</h2>
+                <p class="text-xl text-gray-600">还有疑问？欢迎咨询</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-purple-600 mr-3"></i>
+                        需要准备什么材料？
+                    </h3>
+                    <p class="text-gray-600 ml-9">老照片、家庭视频、或者手机里的照片都可以。如果没有太多素材，我们也可以根据您的描述来创作。越详细的故事，视频越生动。</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-purple-600 mr-3"></i>
+                        多久能拿到成片？
+                    </h3>
+                    <p class="text-gray-600 ml-9">轻量AI版30分钟内出片；半人工定制版24小时内交付初稿，修改后48小时内完成；高端全案需预约拍摄时间，通常7-15天交付。</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-purple-600 mr-3"></i>
+                        不满意可以退款吗？
+                    </h3>
+                    <p class="text-gray-600 ml-9">当然可以。轻量版不满意全额退款；定制版初稿不满意退款50%，成片交付后不支持退款但可免费修改2轮。</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-purple-600 mr-3"></i>
+                        隐私安全有保障吗？
+                    </h3>
+                    <p class="text-gray-600 ml-9">绝对安全。所有素材和成片仅用于本次制作，完成后可应要求删除。可签署保密协议，确保您的家庭隐私不被泄露。</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-purple-600 mr-3"></i>
+                        视频可以发抖音/朋友圈吗？
+                    </h3>
+                    <p class="text-gray-600 ml-9">完全可以！我们会提供横版和竖版两种格式，适配抖音、视频号、朋友圈、小红书等所有平台。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 gradient-bg" id="contact">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">开始记录家人的故事</h2>
+            <p class="text-xl text-white opacity-90 mb-8">免费咨询 30 分钟，了解哪种方案最适合您</p>
+            
+            <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-2xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="flex items-center space-x-4 text-white">
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="opacity-70">咨询热线</div>
+                            <div class="text-xl font-bold">400-XXX-XXXX</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 text-white">
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="opacity-70">微信咨询</div>
+                            <div class="text-xl font-bold">扫码添加顾问</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-white opacity-70 text-sm">
+                    <p>工作时间：周一至周日 9:00-21:00</p>
+                    <p class="mt-2">首次咨询免费 · 不满意可退款 · 隐私严格保密</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-film text-2xl text-purple-400"></i>
+                        <span class="text-xl font-bold">时光影记</span>
+                    </div>
+                    <p class="text-gray-400">用AI技术记录家人故事，让回忆永恒传承。</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">服务</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">轻量AI模板</a></li>
+                        <li><a href="#" class="hover:text-white transition">半人工定制</a></li>
+                        <li><a href="#" class="hover:text-white transition">高端全案</a></li>
+                        <li><a href="#" class="hover:text-white transition">企业服务</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">关于</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">关于我们</a></li>
+                        <li><a href="#" class="hover:text-white transition">样片展示</a></li>
+                        <li><a href="#" class="hover:text-white transition">用户故事</a></li>
+                        <li><a href="#" class="hover:text-white transition">加入我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">联系</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>hello@timefilm.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>400-XXX-XXXX</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>北京市朝阳区</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2024 时光影记. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-weixin text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-weibo text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-douyin text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-xiaohongshu text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
